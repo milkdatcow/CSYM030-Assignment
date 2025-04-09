@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../services/firebase';
+import { auth, db } from '../backend/Firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import styles from "../style";
 
