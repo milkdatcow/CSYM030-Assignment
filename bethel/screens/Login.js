@@ -11,7 +11,7 @@ const Login = ({ navigation }) => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigation.navigate("Dashboard");
+      navigation.navigate("DashboardScreen");
     } catch (err) {
       Alert.alert("Login Error", err.message);
     }
@@ -23,7 +23,7 @@ const Login = ({ navigation }) => {
       <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={styles.input} />
       <TextInput placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} style={styles.input} />
       <Button title="Login" onPress={handleLogin} />
-      <Text onPress={() => navigation.navigate("SignUp")} style={styles.link}>Don't have an account? Sign Up</Text>
+      <Text onPress={() => navigation.navigate("SignupScreen")} style={styles.link}>Don't have an account? Sign Up</Text>
     </View>
   );
 };

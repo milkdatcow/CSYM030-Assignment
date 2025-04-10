@@ -44,7 +44,7 @@ const Signup = ({ navigation }) => {
         <Picker.Item label="Citizen" value="citizen" />
       </Picker>
       <Button title="Create Account" onPress={handleSignUp} />
-      <Text onPress={() => navigation.navigate("Login")} style={styles.link}>Already have an account? Login</Text>
+      <Text onPress={() => navigation.navigate("LoginScreen")} style={styles.link}>Already have an account? Login</Text>
     </View>
   );
 };

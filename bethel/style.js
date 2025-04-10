@@ -28,7 +28,12 @@ const styles = StyleSheet.create({
     link: { 
         marginTop: 10, 
         color: 'blue' 
-    }
+    },
+    subTitle: {
+        fontSize: 16,
+        marginBottom: 10,
+        textAlign: 'center',
+    },
   });
 
 export default styles;
