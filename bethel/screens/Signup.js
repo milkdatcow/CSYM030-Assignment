@@ -20,6 +20,8 @@ const Signup = ({ navigation }) => {
 
       // Save role to Firestore
       await setDoc(doc(db, "users", uid), {
+        fname,
+        lname,
         email,
         role,
         userID: uid

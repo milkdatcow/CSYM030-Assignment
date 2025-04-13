@@ -40,6 +40,18 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginBottom: 15
     },
+    button: {
+        backgroundColor: '#1e90ff',
+        padding: 15,
+        borderRadius: 10,
+        marginBottom: 15,
+      },
+      buttonText: {
+        color: '#fff',
+        fontWeight: '600',
+        fontSize: 16,
+        textAlign: 'center',
+      },
   });
 
 export default styles;
