@@ -31,7 +31,8 @@ const Dashboard = () => {
     if (user) fetchUserData();
   }, [user]);
 
-  const goToBusiness = () => navigation.navigate('BusinessRegistrationScreen');
+  const goToBusiness = () => navigation.navigate('BusinessDashboardScreen');
+
   //const goToHospital = () => navigation.navigate('HospitalScreen');
 
   return (

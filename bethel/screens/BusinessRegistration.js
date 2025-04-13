@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { db } from '../backend/Firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { auth, db } from '../backend/Firebase';
+import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
 import styles from "../style";
 
 const BusinessRegistration = () => {
@@ -11,31 +11,40 @@ const BusinessRegistration = () => {
   const [contactInfo, setContactInfo] = useState('');
   const [location, setLocation] = useState('');
 
-  const handleRegister = async () => {
-    if (!businessName || !businessType || !contactInfo || !location) {
-      Alert.alert('Error', 'All fields are required!');
-      return;
-    }
+  
 
-    try {
-      await addDoc(collection(db, 'businesses'), {
-        businessName,
-        businessType,
-        contactInfo,
-        location,
-        userID: uid,
-        createdAt: new Date()
-      });
-      Alert.alert('Success', 'Business registered successfully!');
-      setBusinessName('');
-      setBusinessType('');
-      setContactInfo('');
-      setLocation('');
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', 'Failed to register business');
-    }
-  };
+const handleRegister = async () => {
+  if (!businessName || !businessType || !contactInfo || !location) {
+    Alert.alert('Error', 'All fields are required!');
+    return;
+  }
+
+  try {
+    const businessRef = await addDoc(collection(db, 'businesses'), {
+      businessName,
+      businessType,
+      contactInfo,
+      location,
+      ownerID: auth.currentUser.uid,
+      createdAt: new Date()
+    });
+
+    // Link the business to the user
+    await updateDoc(doc(db, 'users', auth.currentUser.uid), {
+      businessId: businessRef.id
+    });
+
+    Alert.alert('Success', 'Business registered successfully!');
+    setBusinessName('');
+    setBusinessType('');
+    setContactInfo('');
+    setLocation('');
+  } catch (error) {
+    console.error(error);
+    Alert.alert('Error', 'Failed to register business');
+  }
+};
+
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
