@@ -31,7 +31,7 @@ const Dashboard = () => {
     if (user) fetchUserData();
   }, [user]);
 
-  //const goToBusiness = () => navigation.navigate('BusinessScreen');
+  const goToBusiness = () => navigation.navigate('BusinessRegistrationScreen');
   //const goToHospital = () => navigation.navigate('HospitalScreen');
 
   return (
@@ -46,7 +46,7 @@ const Dashboard = () => {
             <Button title="Manage Business" onPress={goToBusiness} />
           )}
           {userData.role === 'hospital' && (
-            <Button title="Manage Hospital" onPress={goToHospital} />
+            <Button title="Manage Hospital"  />
           )}
           {userData.role === 'citizen' && (
             <Text>Appointments coming soon...</Text>

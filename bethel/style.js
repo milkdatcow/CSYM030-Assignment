@@ -34,6 +34,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'center',
     },
+    picker: {
+        borderWidth: 1,
+        borderColor: '#aaa',
+        borderRadius: 8,
+        marginBottom: 15
+    },
   });
 
 export default styles;
