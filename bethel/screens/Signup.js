@@ -10,6 +10,8 @@ const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
 
   const handleSignUp = async () => {
     try {
@@ -35,6 +37,8 @@ const Signup = ({ navigation }) => {
       <Text style={styles.title}>Sign Up</Text>
       <TextInput placeholder="Email" value={email} onChangeText={setEmail} style={styles.input} />
       <TextInput placeholder="Password" secureTextEntry value={password} onChangeText={setPassword} style={styles.input} />
+      <TextInput placeholder="First Name" value={fname} onChangeText={setFname} style={styles.input} />
+      <TextInput placeholder="Last Name" value={lname} onChangeText={setLname} style={styles.input} />
       <Text>Select Role</Text>
       <Picker selectedValue={role} onValueChange={(itemValue) => setRole(itemValue)}>
         <Picker.Item label="Select your role" value="" enabled={false} />
